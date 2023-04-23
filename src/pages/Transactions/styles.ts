@@ -28,17 +28,17 @@ export const TransactionTable = styled.table`
 		}
 	}
 `
-export enum PriceHighlightType {
+export enum HighlightType {
 	Income,
 	Outgo,
 }
 interface PriceHighlightProps {
-	variant: PriceHighlightType
+	variant: HighlightType
 }
 
 export const PriceHighlight = styled.span<PriceHighlightProps>`
 	color: ${(props) =>
-		props.variant == PriceHighlightType.Income
+		props.variant == HighlightType.Income
 			? props.theme["green-300"]
 			: props.theme["red-300"]};
 `

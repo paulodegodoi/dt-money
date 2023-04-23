@@ -3,7 +3,7 @@ import { Summary } from "../../components/Summary"
 import { SearchForm } from "../Components/SearchForm"
 import {
 	PriceHighlight,
-	PriceHighlightType,
+	HighlightType,
 	TransactionContainer,
 	TransactionTable,
 } from "./styles"
@@ -21,7 +21,7 @@ export function Transactions() {
 						<tr>
 							<td width="50%">Desenvolvimento de site</td>
 							<td>
-								<PriceHighlight variant={PriceHighlightType.Income}>
+								<PriceHighlight variant={HighlightType.Income}>
 									R$ 12.000,00
 								</PriceHighlight>
 							</td>
@@ -31,7 +31,7 @@ export function Transactions() {
 						<tr>
 							<td width="50%">Hamburger</td>
 							<td>
-								<PriceHighlight variant={PriceHighlightType.Outgo}>
+								<PriceHighlight variant={HighlightType.Outgo}>
 									- R$ 59,00
 								</PriceHighlight>
 							</td>
