@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import {EHighlightType} from "../../enums/EHighlightType";
 
 export const TransactionContainer = styled.main`
 	width: 100%;
@@ -28,17 +29,13 @@ export const TransactionTable = styled.table`
 		}
 	}
 `
-export enum HighlightType {
-	Income,
-	Outgo,
-}
 interface PriceHighlightProps {
-	variant: HighlightType
+	variant: EHighlightType
 }
 
 export const PriceHighlight = styled.span<PriceHighlightProps>`
 	color: ${(props) =>
-		props.variant == HighlightType.Income
+		props.variant == EHighlightType.Income
 			? props.theme["green-300"]
 			: props.theme["red-300"]};
 `

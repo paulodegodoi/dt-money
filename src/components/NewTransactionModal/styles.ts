@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import * as Dialog from "@radix-ui/react-dialog"
-import {HighlightType} from "../../pages/Transactions/styles";
 import * as RadioGroup from "@radix-ui/react-radio-group"
+import {EHighlightType} from "../../enums/EHighlightType";
 
 export const Overlay = styled(Dialog.Overlay)`
   position: fixed;
@@ -51,7 +51,12 @@ export const Content = styled(Dialog.Content)`
       margin-top: 1.5rem;
       cursor: pointer;
       
-      &:hover {
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+      
+      &:not(:disabled):hover {
         background: ${props=>props.theme["green-700"]};
         transition: background-color 0.2s;
       }
@@ -78,7 +83,7 @@ export const TransactionType = styled(RadioGroup.Root)`
 `
 
 interface TransactionTypeButtonProps {
-    variant: HighlightType
+    variant: EHighlightType
 }
 
 export const TransactionTypeButton = styled(RadioGroup.Item)<TransactionTypeButtonProps>`
@@ -94,12 +99,12 @@ export const TransactionTypeButton = styled(RadioGroup.Item)<TransactionTypeButt
   color: ${props => props.theme["gray-300"]};
   
   svg {
-    color: ${props => props.variant == HighlightType.Income ? props.theme["green-300"] : props.theme["red-300"]};
+    color: ${props => props.variant == EHighlightType.Income ? props.theme["green-300"] : props.theme["red-300"]};
   }
   
   &[data-state="checked"] {
     color: ${props => props.theme.white};
-    background: ${props => props.variant == HighlightType.Income ? props.theme["green-500"] : props.theme["red-500"]};
+    background: ${props => props.variant == EHighlightType.Income ? props.theme["green-500"] : props.theme["red-500"]};
     
     svg {
       color: ${props => props.theme.white};
